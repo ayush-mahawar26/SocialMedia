@@ -21,23 +21,24 @@ class HomePage extends StatelessWidget {
         title: Text("SocialMedia"),
       ),
 
-      body: StreamBuilder<QuerySnapshot>(  
+      body: StreamBuilder<QuerySnapshot>( 
         stream: collectionStream,
         builder: (BuildContext context , AsyncSnapshot<QuerySnapshot> snapshot){
-          if(snapshot.connectionState == ConnectionState.waiting){
+            if(snapshot.connectionState == ConnectionState.waiting){
             const Center(
-              child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(),
             );
-          }
+            }
 
-          return ListView.builder(
+            return ListView.builder(
             itemCount: snapshot.data?.size, 
             itemBuilder: (context, index){
-              return PostTile().TileOfPost(context, snapshot.data?.docs[index]["username"], snapshot.data?.docs[index]["postByUser"]);
+            return PostTile().TileOfPost(context, snapshot.data?.docs[index]["username"], snapshot.data?.docs[index]["postByUser"]);
             },
           );
-        },
-      ),
+          },
+        ),
+
     ); 
   }
 }
