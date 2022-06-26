@@ -31,13 +31,23 @@ class PostTile{
           ), 
 
           Padding(
-            padding:const EdgeInsets.only(bottom: 20),
+            padding:const EdgeInsets.only(bottom: 10),
             child: SizedBox(
               width: MediaQuery.of(context).size.width*0.76,
               child: Text(
                 postData, 
                 textAlign: TextAlign.start,
               ),
+            ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: Row(
+              children: const [
+                Icon(CupertinoIcons.heart) , 
+                Text("0")
+              ],
             ),
           )
         ],
